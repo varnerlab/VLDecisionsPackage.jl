@@ -139,3 +139,23 @@ function evaluate(model::VLLogUtilityFunction, dependent::Array{T,2})::Array{Flo
     # return - 
     return solution;
 end
+
+"""
+    evaluate(model::VLLogUtilityFunction, dependent::Array{T,1}) -> Array{Float64,1} where T <: Real
+"""
+function evaluate(model::VLLogUtilityFunction, dependent::Array{T,1})::Array{Float64,1} where T <: Real
+
+    # get parameters from model -
+    α = model.parameters;
+    β = model.β;
+    number_of_steps = size(dependent, 1);
+    solution = zeros(number_of_steps);
+
+    # build the solution -
+    for i ∈ 1:number_of_steps
+        solution[i] = log(sum(α.*dependent[i,:]) + β);
+    end
+
+    # return - 
+    return solution;
+end
