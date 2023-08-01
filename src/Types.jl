@@ -32,7 +32,7 @@ mutable struct VLLogUtilityFunction <: AbstractUtilityFunctionType
    
     # data -
     α::Union{Nothing, Array{Float64,1}} # parameters -
-    β::Union{Nothing, Array{Float64,1}} # parameters -
+    β::Union{Nothing, Float64} # parameters -
     
     # constructor -
     VLLogUtilityFunction() = new()
