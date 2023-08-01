@@ -126,7 +126,7 @@ end
 function evaluate(model::VLLogUtilityFunction, dependent::Array{T,2})::Array{Float64,1} where T <: Real
 
     # get parameters from model -
-    α = model.parameters;
+    α = model.α;
     β = model.β;
     number_of_steps = size(dependent, 1);
     solution = zeros(number_of_steps);
@@ -146,7 +146,7 @@ end
 function evaluate(model::VLLogUtilityFunction, dependent::Array{T,1})::Array{Float64,1} where T <: Real
 
     # get parameters from model -
-    α = model.parameters;
+    α = model.α;
     β = model.β;
     number_of_steps = size(dependent, 1);
     solution = zeros(number_of_steps);
