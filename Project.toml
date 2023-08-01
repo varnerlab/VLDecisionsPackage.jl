@@ -1,7 +1,7 @@
 name = "VLDecisionsPackage"
 uuid = "10f378ab-a542-46fe-a8d0-50b9cbff3618"
 authors = ["jdv27"]
-version = "1.0.0-DEV"
+version = "0.1.0"
 
 [compat]
 julia = "1"
