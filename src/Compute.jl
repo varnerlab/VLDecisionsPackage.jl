@@ -107,7 +107,7 @@ end
 function evaluate(model::VLLeontiefUtilityFunction, dependent::Array{T,2})::Array{Float64,1} where T <: Real
 
     # get parameters from model -
-    α = model.parameters;
+    α = model.α;
     number_of_steps = size(dependent, 1);
     solution = zeros(number_of_steps);
 
