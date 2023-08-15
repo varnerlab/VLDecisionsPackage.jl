@@ -120,6 +120,23 @@ function evaluate(model::VLLeontiefUtilityFunction, dependent::Array{T,2})::Arra
     return solution;
 end
 
+
+function evaluate(model::VLLeontiefUtilityFunction, dependent::Array{T,1})::Array{Float64,1} where T <: Real
+
+    # get parameters from model -
+    α = model.α;
+    number_of_steps = size(dependent, 1);
+    solution = zeros(number_of_steps);
+
+    # build the solution -
+    for i ∈ 1:number_of_steps
+        solution[i] = minimum(dependent[i,1] ./ α);
+    end
+
+    # return - 
+    return solution;
+end
+
 """
     evaluate(model::VLLogUtilityFunction, dependent::Array{T,2}) -> Array{Float64,1} where T <: Real
 """
