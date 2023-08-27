@@ -3,6 +3,9 @@ uuid = "10f378ab-a542-46fe-a8d0-50b9cbff3618"
 authors = ["jdv27"]
 version = "0.1.0"
 
+[deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+
 [compat]
 julia = "1"
 

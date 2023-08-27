@@ -4,9 +4,11 @@ module VLDecisionsPackage
     include("Include.jl");
     
     # types -
-    export AbstractUtilityFunctionType;
+    export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType;
     export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
+    export VLDiscreteChoiceModel;
+    export VLLogitBehaviorModel;
 
     # methods -
-    export evaluate, indifference, build;
+    export evaluate, indifference, build, choose;
 end

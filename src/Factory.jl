@@ -28,3 +28,5 @@ build(model::Type{VLLinearUtilityFunction}, data::NamedTuple)::VLLinearUtilityFu
 build(model::Type{VLCobbDouglasUtilityFunction}, data::NamedTuple)::VLCobbDouglasUtilityFunction = _build(model, data)
 build(model::Type{VLLeontiefUtilityFunction}, data::NamedTuple)::VLLeontiefUtilityFunction = _build(model, data)
 build(model::Type{VLLogUtilityFunction}, data::NamedTuple)::VLLogUtilityFunction = _build(model, data)
+build(model::Type{VLDiscreteChoiceModel}, data::NamedTuple)::VLDiscreteChoiceModel = _build(model, data)
+build(model::Type{VLLogitBehaviorModel}, data::NamedTuple)::VLLogitBehaviorModel = _build(model, data);

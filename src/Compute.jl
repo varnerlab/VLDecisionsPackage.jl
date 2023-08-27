@@ -101,7 +101,10 @@ function evaluate(model::VLCobbDouglasUtilityFunction, dependent::Array{T,2})::A
     return solution;
 end
 
-function evaluate(model::VLCobbDouglasUtilityFunction, features)::Float64
+"""
+    evaluate(model::VLCobbDouglasUtilityFunction, features::Array{T,1}) -> T where T <: Real
+"""
+function evaluate(model::VLCobbDouglasUtilityFunction, features::Array{T,1})::T where T <: Real
 
     # get parameters from model -
     α = model.α;

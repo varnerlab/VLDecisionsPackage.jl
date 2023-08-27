@@ -1,4 +1,6 @@
 abstract type AbstractUtilityFunctionType end
+abstract type AbstractChoiceModelType end
+abstract type AbstractBehaviorModelType end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -36,4 +38,22 @@ mutable struct VLLogUtilityFunction <: AbstractUtilityFunctionType
     
     # constructor -
     VLLogUtilityFunction() = new()
+end
+
+mutable struct VLDiscreteChoiceModel <: AbstractChoiceModelType where T <: AbstractUtilityFunctionType
+   
+    # data -
+    model::Union{Nothing, T} # utility function -
+    
+    # constructor -
+    VLDiscreteChoiceModel() = new()
+end
+
+struct VLLogitBehaviorModel <: AbstractBehaviorModelType
+
+    # data -
+    μ::Float64 # scale parameter -
+      
+    # constructor -
+    VLLogitBehaviorModel() = new()
 end
