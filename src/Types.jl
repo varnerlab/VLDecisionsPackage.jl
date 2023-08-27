@@ -40,10 +40,10 @@ mutable struct VLLogUtilityFunction <: AbstractUtilityFunctionType
     VLLogUtilityFunction() = new()
 end
 
-mutable struct VLDiscreteChoiceModel <: AbstractChoiceModelType where T <: AbstractUtilityFunctionType
+mutable struct VLDiscreteChoiceModel <: AbstractChoiceModelType
    
     # data -
-    model::Union{Nothing, T} # utility function -
+    model::AbstractUtilityFunctionType # utility function -
     
     # constructor -
     VLDiscreteChoiceModel() = new()
