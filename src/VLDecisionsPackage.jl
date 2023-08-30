@@ -5,7 +5,7 @@ module VLDecisionsPackage
     
     # types -
     export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType;
-    export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
+    export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLogTransformedCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
     export VLDiscreteChoiceModel;
     export VLLogitBehaviorModel;
 
