@@ -27,7 +27,7 @@ end
 build(model::Type{VLLinearUtilityFunction}, data::NamedTuple)::VLLinearUtilityFunction = _build(model, data)
 
 build(model::Type{VLCobbDouglasUtilityFunction}, data::NamedTuple)::VLCobbDouglasUtilityFunction = _build(model, data)
-build(model::Type{VLLogTransformedCobbDouglasUtilityFunction}, data::NamedTuple)::VLCobbDouglasUtilityFunction = _build(model, data)
+build(model::Type{VLLogTransformedCobbDouglasUtilityFunction}, data::NamedTuple)::VLLogTransformedCobbDouglasUtilityFunction = _build(model, data)
 
 build(model::Type{VLLeontiefUtilityFunction}, data::NamedTuple)::VLLeontiefUtilityFunction = _build(model, data)
 build(model::Type{VLLogUtilityFunction}, data::NamedTuple)::VLLogUtilityFunction = _build(model, data)
