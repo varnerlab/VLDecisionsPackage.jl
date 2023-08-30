@@ -21,6 +21,16 @@ mutable struct VLCobbDouglasUtilityFunction <: AbstractUtilityFunctionType
     VLCobbDouglasUtilityFunction() = new()
 end
 
+mutable struct VLLogTransformedCobbDouglasUtilityFunction <: AbstractUtilityFunctionType
+   
+    # data -
+    α::Union{Nothing, Array{Float64,1}} # parameters -
+    b::Union{Nothing, Float64} # base of the log
+
+    # constructor -
+    VLLogTransformedCobbDouglasUtilityFunction() = new()
+end
+
 mutable struct VLLeontiefUtilityFunction <: AbstractUtilityFunctionType
    
     # data -

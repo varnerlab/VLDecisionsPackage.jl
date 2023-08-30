@@ -68,6 +68,25 @@ function evaluate(model::VLCobbDouglasUtilityFunction, features::Array{T,1})::T 
     return prod(solution);
 end
 
+"""
+    evaluate(model::VLCobbDouglasUtilityFunction, features::Array{T,1}) -> T where T <: Real
+"""
+function evaluate(model::VLLogTransformedCobbDouglasUtilityFunction, features::Array{T,1})::T where T <: Real
+
+    # get parameters from model -
+    α = model.α;
+    b = model.b;
+    number_of_features = size(features, 1);
+    solution = zeros(number_of_features);
+
+    # build the solution -
+    for i ∈ 1:number_of_features
+        solution[i] = α[i]*log(b, features[i]);
+    end
+
+    # return - 
+    return sum(solution);
+end
     
 """
     evaluate(model::VLLeontiefUtilityFunction, dependent::Array{Float64,2}) -> Array{Float64,1}
