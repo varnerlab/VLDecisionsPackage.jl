@@ -1,6 +1,7 @@
 abstract type AbstractUtilityFunctionType end
 abstract type AbstractChoiceModelType end
 abstract type AbstractBehaviorModelType end
+abstract type AbstractSimpleChoiceProblem end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -66,4 +67,17 @@ struct VLLogitBehaviorModel <: AbstractBehaviorModelType
       
     # constructor -
     VLLogitBehaviorModel() = new()
+end
+
+mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractSimpleChoiceProblem
+
+    # data -
+    α::Array{Float64,1}
+    c::Array{Float64,1}
+    I::Float64
+    bounds::Array{Float64,2}
+    initial::Array{Float64,1}
+
+    # constructor
+    MySimpleCobbDouglasChoiceProblem() = new();
 end
