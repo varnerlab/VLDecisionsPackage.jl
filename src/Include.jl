@@ -6,6 +6,7 @@ using Distributions
 using Optim
 using MadNLP
 using JuMP
+using GLPK
 
 # load my codes -
 include(joinpath(_PATH_TO_SRC, "Types.jl"));
