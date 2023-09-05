@@ -81,3 +81,16 @@ mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractSimpleChoiceProblem
     # constructor
     MySimpleCobbDouglasChoiceProblem() = new();
 end
+
+mutable struct MySimpleLinearChoiceProblem <: AbstractSimpleChoiceProblem
+
+    # data -
+    α::Array{Float64,1}
+    c::Array{Float64,1}
+    I::Float64
+    bounds::Array{Float64,2}
+    initial::Array{Float64,1}
+
+    # constructor
+    MySimpleLinearChoiceProblem() = new();
+end
