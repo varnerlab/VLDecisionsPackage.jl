@@ -1,4 +1,4 @@
-function _build(modeltype::Type{T}, data::NamedTuple) where T <: AbstractUtilityFunctionType
+function _build(modeltype::Type{T}, data::NamedTuple) where T <: Union{AbstractUtilityFunctionType, AbstractSimpleChoiceProblem}
     
     # build an empty model
     model = modeltype();
