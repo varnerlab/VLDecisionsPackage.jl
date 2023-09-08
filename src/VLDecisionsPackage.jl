@@ -12,6 +12,7 @@ module VLDecisionsPackage
     # simple choice problems -
     export MySimpleCobbDouglasChoiceProblem
     export MySimpleLinearChoiceProblem
+    export MySimpleBinaryVariableLinearChoiceProblem
 
     # methods -
     export evaluate, indifference, build, choose, solve;
