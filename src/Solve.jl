@@ -165,7 +165,7 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
 
     # setup the problem -
     d = length(μ)
-    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.INFO, max_iter=500))
+    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.ERROR, max_iter=500))
     @variable(model, bounds[i,1] <= w[i=1:d] <= bounds[i,2], start=wₒ[i])
 
     # set objective function -
