@@ -187,7 +187,6 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     w_opt = value.(w);
     results["argmax"] = w_opt
     results["reward"] = transpose(μ)*w_opt; 
-    results["risk"] = transpose(w_opt)*Σ*w_opt;
     results["objective_value"] = objective_value(model);
     results["status"] = termination_status(model);
 
