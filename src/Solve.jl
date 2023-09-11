@@ -175,7 +175,7 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     @constraints(model, 
         begin
             # my turn constraint
-            transpose(μ)*w == R
+            transpose(μ)*w >= R
             sum(w) == 1.0
         end
     );
