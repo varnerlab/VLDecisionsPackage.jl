@@ -169,7 +169,7 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     @variable(model, bounds[i,1] <= w[i=1:d] <= bounds[i,2], start=wₒ[i])
 
     # set objective function -
-    @NLobjective(model, Min, transpose(w)*Σ*w);
+    @objective(model, Min, transpose(w)*Σ*w);
 
     # setup the constraints -
     @constraints(model, 
