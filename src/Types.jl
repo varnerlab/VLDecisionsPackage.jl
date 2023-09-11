@@ -117,6 +117,7 @@ mutable struct MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem <: AbstractStoch
     μ::Array{Float64,1}
     bounds::Array{Float64,2}
     R::Float64
+    initial::Array{Float64,1}
 
     # constructor
     MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem() = new();
