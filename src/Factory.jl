@@ -1,4 +1,4 @@
-function _build(modeltype::Type{T}, data::NamedTuple) where T <: Union{AbstractUtilityFunctionType, AbstractSimpleChoiceProblem}
+function _build(modeltype::Type{T}, data::NamedTuple) where T <: Union{AbstractUtilityFunctionType, AbstractSimpleChoiceProblem, AbstractStochasticChoiceProblem}
     
     # build an empty model
     model = modeltype();
@@ -36,3 +36,4 @@ build(model::Type{VLLogitBehaviorModel}, data::NamedTuple)::VLLogitBehaviorModel
 build(model::Type{MySimpleCobbDouglasChoiceProblem}, data::NamedTuple)::MySimpleCobbDouglasChoiceProblem = _build(model, data);
 build(model::Type{MySimpleLinearChoiceProblem}, data::NamedTuple)::MySimpleLinearChoiceProblem = _build(model, data);
 build(model::Type{MySimpleBinaryVariableLinearChoiceProblem}, data::NamedTuple)::MySimpleBinaryVariableLinearChoiceProblem = _build(model, data);
+build(model::Type{MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem}, data::NamedTuple)::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem = _build(model, data);

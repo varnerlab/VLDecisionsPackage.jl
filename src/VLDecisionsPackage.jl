@@ -14,6 +14,10 @@ module VLDecisionsPackage
     export MySimpleLinearChoiceProblem
     export MySimpleBinaryVariableLinearChoiceProblem
 
+    # stochastic choice problems -
+    export AbstractStochasticChoiceProblem
+    export MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem
+
     # methods -
     export evaluate, indifference, build, choose, solve;
 end

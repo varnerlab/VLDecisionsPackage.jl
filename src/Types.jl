@@ -2,6 +2,7 @@ abstract type AbstractUtilityFunctionType end
 abstract type AbstractChoiceModelType end
 abstract type AbstractBehaviorModelType end
 abstract type AbstractSimpleChoiceProblem end
+abstract type AbstractStochasticChoiceProblem end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -107,4 +108,16 @@ mutable struct MySimpleBinaryVariableLinearChoiceProblem <: AbstractSimpleChoice
 
     # constructor
     MySimpleBinaryVariableLinearChoiceProblem() = new();
+end
+
+mutable struct MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem <: AbstractStochasticChoiceProblem
+
+    # data -
+    Σ::Array{Float64,2}
+    μ::Array{Float64,1}
+    bounds::Array{Float64,2}
+    R::Float64
+
+    # constructor
+    MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem() = new();
 end
