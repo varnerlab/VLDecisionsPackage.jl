@@ -175,7 +175,7 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     @constraints(model, 
         begin
             # my turn constraint
-            transpose(μ)*w >= R
+            transpose(μ)*w == R
             sum(w) == 1.0
         end
     );
@@ -186,8 +186,10 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     # populate -
     w_opt = value.(w);
     results["argmax"] = w_opt
-    results["budget"] = transpose(μ)*w_opt; 
+    results["reward"] = transpose(μ)*w_opt; 
+    results["risk"] = transpose(w_opt)*Σ*w_opt;
     results["objective_value"] = objective_value(model);
+    results["status"] = termination_status(model);
 
     # return -
     return results
