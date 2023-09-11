@@ -176,6 +176,7 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
         begin
             # my turn constraint
             transpose(μ)*w >= R
+            sum(w) = 1
         end
     );
 
