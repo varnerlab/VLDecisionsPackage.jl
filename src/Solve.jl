@@ -169,15 +169,13 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     @variable(model, bounds[i,1] <= w[i=1:d] <= bounds[i,2], start=wₒ[i])
 
     # set objective function -
-    risk = quadform(w,Σ)
-    ret  = dot(w,μ)
-    @NLobjective(model, Min, risk);
+    @NLobjective(model, Min, transpose(w)*Σ*w);
 
     # setup the constraints -
     @constraints(model, 
         begin
             # my turn constraint
-            ret >= R
+            transpose(μ)*w >= R
         end
     );
 
