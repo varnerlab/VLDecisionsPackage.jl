@@ -217,7 +217,7 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
     @constraints(model, 
         begin
             # my turn constraint
-            transpose(μ)*w + (1 - sum(w))*rfr >= R
+            transpose(μ)*w + (1.0 - sum(w))*rfr >= R
         end
     );
 
@@ -226,6 +226,9 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
 
     # populate -
     w_opt = value.(w);
+
+    sum(w_opt)
+
     results["reward"] = transpose(μ)*w_opt + (1.0 - sum(w_opt))*rfr;
     results["argmax"] = w_opt;
     results["objective_value"] = objective_value(model);
