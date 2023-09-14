@@ -131,7 +131,6 @@ mutable struct MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem <: AbstractStocha
     bounds::Array{Float64,2}
     R::Float64
     initial::Array{Float64,1}
-    wₒ::Float64
     risk_free_rate::Float64
 
     # constructor -

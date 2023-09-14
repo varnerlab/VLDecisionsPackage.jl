@@ -203,7 +203,6 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
     R = problem.R;
     bounds = problem.bounds;
     initial = problem.initial
-    wₒ = problem.wₒ
     rfr = problem.risk_free_rate
 
     # setup the problem -
@@ -218,8 +217,7 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
     @constraints(model, 
         begin
             # my turn constraint
-            transpose(μ)*w + wₒ*rfr >= R
-            wₒ + sum(w) == 1.0
+            transpose(μ)*w + (1 - sum(w))*rfr >= R
         end
     );
 
@@ -228,8 +226,8 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
 
     # populate -
     w_opt = value.(w);
-    results["reward"] = transpose(μ)*w_opt + wₒ*rfr;
-    results["argmax"] = push!(w_opt, wₒ);
+    results["reward"] = transpose(μ)*w_opt + (1.0 - sum(w_opt))*rfr;
+    results["argmax"] = w_opt;
     results["objective_value"] = objective_value(model);
     results["status"] = termination_status(model);
 
