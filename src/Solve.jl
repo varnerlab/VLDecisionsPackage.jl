@@ -229,7 +229,7 @@ function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{S
     # populate -
     w_opt = value.(w);
     results["argmax"] = push!(w_opt, wₒ);
-    results["reward"] = transpose(μ)*w_opt + wₒ*rfr;
+    results["reward"] = transpose(μ)*w_opt
     results["objective_value"] = objective_value(model);
     results["status"] = termination_status(model);
 
