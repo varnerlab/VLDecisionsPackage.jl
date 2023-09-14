@@ -17,6 +17,7 @@ module VLDecisionsPackage
     # stochastic choice problems -
     export AbstractStochasticChoiceProblem
     export MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem
+    export MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem
 
     # methods -
     export evaluate, indifference, build, choose, solve;

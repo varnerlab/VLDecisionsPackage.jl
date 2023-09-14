@@ -193,3 +193,46 @@ function solve(problem::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem)::Dict{
     # return -
     return results
 end
+
+function solve(problem::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem)::Dict{String,Any}
+
+    # initialize -
+    results = Dict{String,Any}()
+    Σ = problem.Σ;
+    μ = problem.μ;
+    R = problem.R;
+    bounds = problem.bounds;
+    initial = problem.initial
+    wₒ = problem.wₒ
+    rfr = problem.risk_free_rate
+
+    # setup the problem -
+    d = length(μ)
+    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.ERROR, max_iter=500))
+    @variable(model, bounds[i,1] <= w[i=1:d] <= bounds[i,2], start=initial[i])
+
+    # set objective function -
+    @objective(model, Min, transpose(w)*Σ*w);
+
+    # setup the constraints -
+    @constraints(model, 
+        begin
+            # my turn constraint
+            transpose(μ)*w + wₒ*rfr >= R
+            wₒ + sum(w) == 1.0
+        end
+    );
+
+    # run the optimization -
+    optimize!(model)
+
+    # populate -
+    w_opt = value.(w);
+    results["argmax"] = push!(w_opt, wₒ);
+    results["reward"] = transpose(μ)*w_opt + wₒ*rfr;
+    results["objective_value"] = objective_value(model);
+    results["status"] = termination_status(model);
+
+    # return -
+    return results
+end

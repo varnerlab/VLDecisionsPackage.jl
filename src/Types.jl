@@ -122,3 +122,18 @@ mutable struct MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem <: AbstractStoch
     # constructor
     MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem() = new();
 end
+
+mutable struct MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem <: AbstractStochasticChoiceProblem
+
+    # data -
+    Σ::Array{Float64,2}
+    μ::Array{Float64,1}
+    bounds::Array{Float64,2}
+    R::Float64
+    initial::Array{Float64,1}
+    wₒ::Float64
+    risk_free_rate::Float64
+
+    # constructor -
+    MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem() = new();
+end
