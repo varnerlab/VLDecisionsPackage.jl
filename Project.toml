@@ -16,6 +16,7 @@ Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 [compat]
 Distributions = "0.25"
 JuMP = "1"
+MadNLP = "0.7"
 Optim = "^1.7.0"
 Plots = "^1"
 julia = "^1.8.0"
