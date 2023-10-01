@@ -153,6 +153,9 @@ mutable struct MySimpleGameModel <: AbstractGameModel
     ℐ::Array{Int64,1}   # set of players -
     𝒜   # joint action space
     R   # joint reward function
+
+    # constructor -
+    MySimpleGameModel() = new();
 end
 
 mutable struct MySimpleGamePolicy <: AbstractPolicyModel
