@@ -20,9 +20,9 @@ module VLDecisionsPackage
     export MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem
 
     # games -
-    export MySimpleGamePolicy, MySimpleGameModel, SetCategorical
+    export MySimpleGamePolicy, MySimpleGameModel, SetCategorical, MyFictitiousPlayModel
 
     # methods -
     export evaluate, indifference, build, choose, solve;
-    export best_response_policy, softmax_response_policy, joint, utility;
+    export best_response_policy, softmax_response_policy, joint, utility, update!;
 end

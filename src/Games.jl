@@ -15,13 +15,38 @@ function utility(𝒫::MySimpleGameModel, π, i)
 end
 
 function best_response_policy(𝒢::MySimpleGameModel, π,i)
-    U(aᵢ) = utility(𝒢, joint(π, MySimpleGamePolicy(aᵢ), i), i);
-    aᵢ = argmax(U, 𝒢.𝒜[i]);
-    return MySimpleGamePolicy(aᵢ)
+    return 0;
 end
 
 function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
     𝒜ᵢ = 𝒢.𝒜[i];
     U(aᵢ) = utility(𝒢, joint(π, MySimpleGamePolicy(aᵢ), i), i);
     return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aᵢ in 𝒜ᵢ)
+end
+
+mutable struct MyFictitiousPlayModel
+    𝒫  # simple game
+    i  # agent index
+    N  # array of action count dictionaries
+    πi # current policy
+end
+
+function MyFictitiousPlayModel(𝒫::MySimpleGameModel, i)
+    N = [Dict(aj => 1 for aj in 𝒫.𝒜[j]) for j in 𝒫.ℐ]
+    πi = MySimpleGamePolicy(ai => 1.0 for ai in 𝒫.𝒜[i])
+    return MyFictitiousPlayModel(𝒫, i, N, πi)
+end
+
+(πi::MyFictitiousPlayModel)() = πi.πi()
+
+(πi::MyFictitiousPlayModel)(ai) = πi.πi(ai)
+
+function update!(πi::MyFictitiousPlayModel, a)
+    N, 𝒫, ℐ, i = πi.N, πi.𝒫, πi.𝒫.ℐ, πi.i
+    for (j, aj) in enumerate(a)
+        N[j][aj] += 1
+    end
+    p(j) = MySimpleGamePolicyModel(aj => u/sum(values(N[j])) for (aj, u) in N[j])
+    π = [p(j) for j in ℐ]
+    πi.πi = best_response_policy(𝒫, π, i)
 end
