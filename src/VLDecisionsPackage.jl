@@ -24,5 +24,5 @@ module VLDecisionsPackage
 
     # methods -
     export evaluate, indifference, build, choose, solve;
-    export best_response_policy, softmax_response_policy, joint, utility, simulate
+    export best_response_policy, softmax_response_policy, joint, utility, simulate, update!
 end
