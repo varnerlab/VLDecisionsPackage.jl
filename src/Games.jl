@@ -51,3 +51,13 @@ function update!(πi::MyFictitiousPlayModel, a, λ)
     π = [p(j) for j in ℐ]
     πi.πi = softmax_response_policy(𝒫, π, i, λ)
 end
+
+function simulate(𝒫::MyFictitiousPlayModel, π, k_max)
+    for k = 1:k_max
+        a = [πi() for πi in π]
+        for πi in π
+            update!(πi, a)
+        end
+    end
+    return π
+end
