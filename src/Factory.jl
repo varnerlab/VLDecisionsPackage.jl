@@ -38,3 +38,4 @@ build(model::Type{MySimpleLinearChoiceProblem}, data::NamedTuple)::MySimpleLinea
 build(model::Type{MySimpleBinaryVariableLinearChoiceProblem}, data::NamedTuple)::MySimpleBinaryVariableLinearChoiceProblem = _build(model, data);
 build(model::Type{MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem}, data::NamedTuple)::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem = _build(model, data);
 build(model::Type{MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem}, data::NamedTuple)::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem = _build(model, data);
+build(model::Type{MySimpleGameModel}, data::NamedTuple)::MySimpleGameModel = _build(model, data);

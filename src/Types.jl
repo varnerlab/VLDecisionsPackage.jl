@@ -3,6 +3,8 @@ abstract type AbstractChoiceModelType end
 abstract type AbstractBehaviorModelType end
 abstract type AbstractSimpleChoiceProblem end
 abstract type AbstractStochasticChoiceProblem end
+abstract type AbstractGameModel end
+abstract type AbstractPolicyModel end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -136,3 +138,41 @@ mutable struct MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem <: AbstractStocha
     # constructor -
     MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem() = new();
 end
+
+# ===== GAMES ==================================================================== #
+
+"""
+    Models simple games for Multiagent Reinforcement Learning and Reasoning
+
+This implemention was reporduced from the Algorithms for Decision Making book by Mykel J. Kochenderfer and Tim A. Wheeler.
+"""
+mutable struct MySimpleGameModel <: AbstractGameModel
+
+    # data -
+    γ::Float64          # discount factor -
+    ℐ::Array{Int64,1}   # set of players -
+    𝒜   # joint action space
+    R   # joint reward function
+end
+
+mutable struct MySimpleGamePolicy <: AbstractPolicyModel
+
+    # data -
+    p # dictionary mapping actions to probabilities
+
+    # constrcutors -
+    function MySimpleGamePolicy(p::Base.Generator)
+        return MySimpleGamePolicy(Dict(p))
+    end
+
+    function MySimpleGamePolicy(p::Dict)
+        vs = collect(values(p));
+        vs ./= sum(vs);
+        return new(Dict(k => v for (k,v) ∈ zip(keys(p), vs)))
+    end
+
+    function MySimpleGamePolicy(aᵢ)
+        return MySimpleGamePolicy(Dict(aᵢ => 1.0))
+    end
+end
+

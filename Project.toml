@@ -6,6 +6,7 @@ version = "0.1.0"
 [deps]
 Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
 GLPK = "60bf3e95-4087-53dc-ae20-288a0d20c6a6"
+GridInterpolations = "bb4c363b-b914-514b-8517-4eb369bc008a"
 JuMP = "4076af6c-e467-56ae-b986-b466b2749572"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 MadNLP = "2621e9c9-9eb4-46b1-8089-e8c72242dfb6"

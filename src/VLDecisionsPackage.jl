@@ -4,7 +4,7 @@ module VLDecisionsPackage
     include("Include.jl");
     
     # types -
-    export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType, AbstractSimpleChoiceProblem;
+    export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType, AbstractSimpleChoiceProblem, AbstractGameModel, AbstractPolicyModel;
     export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLogTransformedCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
     export VLDiscreteChoiceModel;
     export VLLogitBehaviorModel;
@@ -19,6 +19,10 @@ module VLDecisionsPackage
     export MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem
     export MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem
 
+    # games -
+    export MySimpleGamePolicy, MySimpleGameModel, SetCategorical
+
     # methods -
     export evaluate, indifference, build, choose, solve;
+    export best_response_policy, softmax_response_policy, joint, utility;
 end
