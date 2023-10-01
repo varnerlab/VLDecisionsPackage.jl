@@ -23,5 +23,5 @@ end
 function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
     𝒜ᵢ = 𝒢.𝒜[i];
     U(aᵢ) = utility(𝒢, joint(π, MySimpleGamePolicy(aᵢ), i), i);
-    return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aⱼ in 𝒜ᵢ)
+    return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aᵢ in 𝒜ᵢ)
 end
