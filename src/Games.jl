@@ -46,7 +46,7 @@ function update!(πi::MyFictitiousPlayModel, a)
     for (j, aj) in enumerate(a)
         N[j][aj] += 1
     end
-    p(j) = MySimpleGamePolicyModel(aj => u/sum(values(N[j])) for (aj, u) in N[j])
+    p(j) = MySimpleGamePolicy(aj => u/sum(values(N[j])) for (aj, u) in N[j])
     π = [p(j) for j in ℐ]
     πi.πi = best_response_policy(𝒫, π, i)
 end
