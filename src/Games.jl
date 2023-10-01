@@ -42,12 +42,12 @@ end
 (πi::MyFictitiousPlayModel)() = πi.πi()
 (πi::MyFictitiousPlayModel)(ai) = πi.πi(ai)
 
-function update!(πi::MyFictitiousPlayModel, a)
+function update!(πi::MyFictitiousPlayModel, a, λ)
     N, 𝒫, ℐ, i = πi.N, πi.𝒫, πi.𝒫.ℐ, πi.i
     for (j, aj) in enumerate(a)
         N[j][aj] += 1
     end
     p(j) = MySimpleGamePolicy(aj => u/sum(values(N[j])) for (aj, u) in N[j])
     π = [p(j) for j in ℐ]
-    πi.πi = best_response_policy(𝒫, π, i)
+    πi.πi = softmax_response_policy(𝒫, π, i, λ)
 end
