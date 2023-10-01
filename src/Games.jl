@@ -38,7 +38,6 @@ function MyFictitiousPlayModel(𝒫::MySimpleGameModel, i)
 end
 
 (πi::MyFictitiousPlayModel)() = πi.πi()
-
 (πi::MyFictitiousPlayModel)(ai) = πi.πi(ai)
 
 function update!(πi::MyFictitiousPlayModel, a)
@@ -49,4 +48,6 @@ function update!(πi::MyFictitiousPlayModel, a)
     p(j) = MySimpleGamePolicy(aj => u/sum(values(N[j])) for (aj, u) in N[j])
     π = [p(j) for j in ℐ]
     πi.πi = best_response_policy(𝒫, π, i)
+
+    @show πi.πi
 end
