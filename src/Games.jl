@@ -15,7 +15,9 @@ function utility(𝒫::MySimpleGameModel, π, i)
 end
 
 function best_response_policy(𝒢::MySimpleGameModel, π,i)
-    return 0;
+    U(ai) = utility(𝒫, joint(π, MySimpleGamePolicy(ai), i), i)
+    ai = argmax(U, 𝒫.𝒜[i])
+    return MySimpleGamePolicy(ai)
 end
 
 function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
