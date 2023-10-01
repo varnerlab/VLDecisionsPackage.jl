@@ -14,13 +14,13 @@ function utility(𝒫::MySimpleGameModel, π, i)
     return sum(R(a)[i]*p(a) for a in joint(𝒜))
 end
 
-function best_response(𝒢::MySimpleGameModel, π,i)
+function best_response_policy(𝒢::MySimpleGameModel, π,i)
     U(aᵢ) = utility(𝒢, joint(π, MySimpleGamePolicy(aᵢ), i), i);
     aᵢ = argmax(U, 𝒢.𝒜[i]);
     return MySimpleGamePolicy(aᵢ)
 end
 
-function softmax_response(𝒢::MySimpleGameModel, π, i, λ)
+function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
     𝒜ᵢ = 𝒢.𝒜[i];
     U(aᵢ) = utility(𝒢, joint(π, MySimpleGamePolicy(aᵢ), i), i);
     return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aⱼ in 𝒜ᵢ)
