@@ -179,3 +179,14 @@ mutable struct MySimpleGamePolicy <: AbstractPolicyModel
     end
 end
 
+
+mutable struct MyHierarchicalSoftmaxPolicy
+    
+    # data
+    λ # precision parameter
+    k # level
+    π # initial policy
+
+    # constructor -
+    MyHierarchicalSoftmaxPolicy() = new();
+end
