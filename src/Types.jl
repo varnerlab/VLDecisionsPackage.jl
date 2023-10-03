@@ -188,5 +188,5 @@ mutable struct MyHierarchicalSoftmaxPolicy
     π # initial policy
 
     # constructor -
-    MyHierarchicalSoftmaxPolicy() = new();
+    # MyHierarchicalSoftmaxPolicy() = new();
 end
