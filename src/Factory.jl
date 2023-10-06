@@ -39,9 +39,3 @@ build(model::Type{MySimpleBinaryVariableLinearChoiceProblem}, data::NamedTuple):
 build(model::Type{MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem}, data::NamedTuple)::MyMarkowitzRiskyAssetOnlyPortfiolioChoiceProblem = _build(model, data);
 build(model::Type{MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem}, data::NamedTuple)::MyMarkowitzRiskyRiskFreePortfiolioChoiceProblem = _build(model, data);
 build(model::Type{MySimpleGameModel}, data::NamedTuple)::MySimpleGameModel = _build(model, data);
-
-
-function build(𝒫::MySimpleGameModel, k_max)
-    π = [MySimpleGamePolicy(ai => 1.0 for ai in 𝒜i) for 𝒜i in 𝒫.𝒜]
-    return MyIteratedBestResponsePolicy(k_max, π)
-end
