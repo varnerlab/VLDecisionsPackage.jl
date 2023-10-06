@@ -146,7 +146,7 @@ end
 
 This implemention was reporduced from the Algorithms for Decision Making book by Mykel J. Kochenderfer and Tim A. Wheeler.
 """
-struct MySimpleGameModel <: AbstractGameModel
+mutable struct MySimpleGameModel <: AbstractGameModel
 
     # data -
     γ   # discount factor -
