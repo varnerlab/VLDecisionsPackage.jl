@@ -26,6 +26,16 @@ function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
     return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aᵢ in 𝒜ᵢ)
 end
 
+
+function solve(M::MyHierarchicalSoftmaxPolicy, 𝒫)
+    π = M.π
+    for k in 1:M.k
+        π = [softmax_response_policy(𝒫, π, i, M.λ) for i in 𝒫.ℐ]
+    end
+    return π
+end
+
+### MyFictitiousPlayModel ###
 mutable struct MyFictitiousPlayModel
     𝒫  # simple game
     i  # agent index
@@ -58,20 +68,6 @@ function simulate(𝒫::MySimpleGameModel, π, k_max)
         for πi in π
             update!(πi, a)
         end
-    end
-    return π
-end
-
-
-# function HierarchicalSoftmaxPolicy(𝒫::MySimpleGameModel, λ, k)
-#     π = [SimpleGamePolicy(ai => 1.0 for ai in 𝒜i) for 𝒜i in 𝒫.𝒜]
-#     return MyHierarchicalSoftmaxPolicy(λ, k, π)
-# end
-
-function solve(M::MyHierarchicalSoftmaxPolicy, 𝒫)
-    π = M.π
-    for k in 1:M.k
-        π = [softmax_response_policy(𝒫, π, i, M.λ) for i in 𝒫.ℐ]
     end
     return π
 end

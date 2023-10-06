@@ -149,8 +149,8 @@ This implemention was reporduced from the Algorithms for Decision Making book by
 mutable struct MySimpleGameModel <: AbstractGameModel
 
     # data -
-    γ::Float64          # discount factor -
-    ℐ::Array{Int64,1}   # set of players -
+    γ   # discount factor -
+    ℐ   # set of players -
     𝒜   # joint action space
     R   # joint reward function
 
