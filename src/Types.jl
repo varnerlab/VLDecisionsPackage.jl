@@ -146,7 +146,7 @@ end
 
 This implemention was reporduced from the Algorithms for Decision Making book by Mykel J. Kochenderfer and Tim A. Wheeler.
 """
-mutable struct MySimpleGameModel <: AbstractGameModel
+struct MySimpleGameModel <: AbstractGameModel
 
     # data -
     γ   # discount factor -
@@ -154,8 +154,12 @@ mutable struct MySimpleGameModel <: AbstractGameModel
     𝒜   # joint action space
     R   # joint reward function
 
-    # constructor -
+    # # constructor -
     MySimpleGameModel() = new();
+
+    function MySimpleGameModel(γ, ℐ, 𝒜, R)
+        return MySimpleGameModel(γ, ℐ, 𝒜, R)
+    end
 end
 
 mutable struct MySimpleGamePolicy <: AbstractPolicyModel
