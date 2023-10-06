@@ -72,9 +72,9 @@ function simulate(𝒫::MySimpleGameModel, π, k_max)
 end
 
 
-function solve(M::MyIteratedBestResponsePolicy, 𝒫)
+function solve(M::MyIteratedBestResponsePolicy, 𝒫::MySimpleGameModel)
     π = M.π
-    for k in 1:M.k_max
+    for _ in 1:M.k_max
         π = [best_response_policy(𝒫, π, i) for i in 𝒫.ℐ]
     end
     return π
