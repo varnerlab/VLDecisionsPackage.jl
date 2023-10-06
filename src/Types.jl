@@ -156,10 +156,6 @@ struct MySimpleGameModel <: AbstractGameModel
 
     # # constructor -
     MySimpleGameModel() = new();
-
-    function MySimpleGameModel(γ, ℐ, 𝒜, R)
-        return MySimpleGameModel(γ, ℐ, 𝒜, R)
-    end
 end
 
 mutable struct MySimpleGamePolicy <: AbstractPolicyModel
