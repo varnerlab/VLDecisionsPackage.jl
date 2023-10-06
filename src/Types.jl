@@ -158,6 +158,11 @@ mutable struct MySimpleGameModel <: AbstractGameModel
     MySimpleGameModel() = new();
 end
 
+struct MyIteratedBestResponsePolicy <: AbstractPolicyModel 
+    k_max # number of iterations
+    π     # initial policy
+end
+
 mutable struct MySimpleGamePolicy <: AbstractPolicyModel
 
     # data -

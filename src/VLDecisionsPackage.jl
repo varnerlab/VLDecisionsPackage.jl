@@ -22,6 +22,7 @@ module VLDecisionsPackage
     # games -
     export MySimpleGamePolicy, MySimpleGameModel, SetCategorical, MyFictitiousPlayModel
     export MyHierarchicalSoftmaxPolicy
+    export MyIteratedBestResponsePolicy
 
     # methods -
     export evaluate, indifference, build, choose, solve;

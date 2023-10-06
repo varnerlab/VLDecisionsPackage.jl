@@ -26,7 +26,6 @@ function softmax_response_policy(𝒢::MySimpleGameModel, π, i, λ)
     return MySimpleGamePolicy(aᵢ => exp(λ*U(aᵢ)) for aᵢ in 𝒜ᵢ)
 end
 
-
 function solve(M::MyHierarchicalSoftmaxPolicy, 𝒫)
     π = M.π
     for k in 1:M.k
@@ -68,6 +67,15 @@ function simulate(𝒫::MySimpleGameModel, π, k_max)
         for πi in π
             update!(πi, a)
         end
+    end
+    return π
+end
+
+
+function solve(M::MyIteratedBestResponsePolicy, 𝒫)
+    π = M.π
+    for k in 1:M.k_max
+        π = [best_response_policy(𝒫, π, i) for i in 𝒫.ℐ]
     end
     return π
 end
