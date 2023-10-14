@@ -22,3 +22,4 @@ include(joinpath(_PATH_TO_SRC, "Indifference.jl"));
 include(joinpath(_PATH_TO_SRC, "Solve.jl"));
 include(joinpath(_PATH_TO_SRC, "Utility.jl"));
 include(joinpath(_PATH_TO_SRC, "Games.jl"));
+include(joinpath(_PATH_TO_SRC, "MDPs.jl"));

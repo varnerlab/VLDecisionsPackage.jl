@@ -5,6 +5,7 @@ abstract type AbstractSimpleChoiceProblem end
 abstract type AbstractStochasticChoiceProblem end
 abstract type AbstractGameModel end
 abstract type AbstractPolicyModel end
+abstract type AbstractProcessModel end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -156,6 +157,19 @@ mutable struct MySimpleGameModel <: AbstractGameModel
 
     # # constructor -
     MySimpleGameModel() = new();
+end
+
+mutable struct MyMDPProblemModel <: AbstractProcessModel
+
+    # data -
+    𝒮::Array{Int64,1}
+    𝒜::Array{Int64,1}
+    T::Array{Float64,3}
+    R::Array{Float64,2}
+    γ::Float64
+    
+    # constructor -
+    MyMDPProblemModel() = new()
 end
 
 struct MyIteratedBestResponsePolicy <: AbstractPolicyModel 

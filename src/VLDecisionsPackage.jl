@@ -5,6 +5,7 @@ module VLDecisionsPackage
     
     # types -
     export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType, AbstractSimpleChoiceProblem, AbstractGameModel, AbstractPolicyModel;
+    export AbstractProcessModel;
     export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLogTransformedCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
     export VLDiscreteChoiceModel;
     export VLLogitBehaviorModel;
@@ -23,6 +24,10 @@ module VLDecisionsPackage
     export MySimpleGamePolicy, MySimpleGameModel, SetCategorical, MyFictitiousPlayModel
     export MyHierarchicalSoftmaxPolicy
     export MyIteratedBestResponsePolicy
+    
+    # MDPs
+    export MyMDPProblemModel
+    export lookahead, iterative_policy_evaluation, Q, policy
 
     # methods -
     export evaluate, indifference, build, choose, solve;
