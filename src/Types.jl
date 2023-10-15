@@ -164,8 +164,8 @@ mutable struct MyMDPProblemModel <: AbstractProcessModel
     # data -
     𝒮::Array{Int64,1}
     𝒜::Array{Int64,1}
-    T::Array{Float64,3}
-    R::Array{Float64,2}
+    T::Union{Function, Array{Float64,3}}
+    R::Union{Function, Array{Float64,2}}
     γ::Float64
     
     # constructor -
