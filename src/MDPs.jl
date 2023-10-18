@@ -74,3 +74,19 @@ end
 function backup(problem::MyMDPProblemModel, U::Array{Float64,1}, s::Int64)
     return maximum(lookahead(problem, U, s, a) for a ∈ problem.𝒜);
 end
+
+function solve(model::MyValueIterationModel, problem::MyMDPProblemModel)::MyValueFunctionPolicy
+    
+    # data -
+    k_max = model.k_max;
+
+    # initialize
+    U = [0.0 for _ ∈ problem.𝒮];
+
+    # main loop -
+    for _ ∈ 1:k_max
+        U = [backup(problem, U, s) for s ∈ problem.𝒮];
+    end
+
+    return MyValueFunctionPolicy(problem, U);
+end

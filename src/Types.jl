@@ -209,3 +209,13 @@ mutable struct MyHierarchicalSoftmaxPolicy
     # constructor -
     # MyHierarchicalSoftmaxPolicy() = new();
 end
+
+struct MyValueIterationModel 
+    # data -
+    k_max::Int64; # max number of iterations
+end
+
+struct MyValueFunctionPolicy
+    problem::MyMDPProblemModel
+    U::Array{Float64,1}
+end
