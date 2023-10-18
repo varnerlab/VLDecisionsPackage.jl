@@ -70,3 +70,7 @@ function policy(Q_array::Array{Float64,2})::Array{Int64,1}
     # return -
     return π_array;
 end
+
+function backup(problem::MyMDPProblemModel, U::Array{Float64,1}, s::Int64)
+    return maximum(lookahead(problem, U, s, a) for a ∈ problem.𝒜);
+end

@@ -27,7 +27,7 @@ module VLDecisionsPackage
     
     # MDPs
     export MyMDPProblemModel
-    export lookahead, iterative_policy_evaluation, Q, policy
+    export lookahead, iterative_policy_evaluation, Q, policy, backup
 
     # methods -
     export evaluate, indifference, build, choose, solve;
