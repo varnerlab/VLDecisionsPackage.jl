@@ -90,3 +90,10 @@ function solve(model::MyValueIterationModel, problem::MyMDPProblemModel)::MyValu
 
     return MyValueFunctionPolicy(problem, U);
 end
+
+function greedy(problem::MyMDPProblemModel, U::Array{Float64,1}, s::Int64)
+    u, a = findmax(a->lookahead(problem, U, s, a), problem.𝒜);
+    return (a=a, u=u)
+end
+
+(π::MyValueFunctionPolicy)(s::Int64) = greedy(π.problem, π.U, s).a;

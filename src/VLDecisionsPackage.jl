@@ -30,6 +30,6 @@ module VLDecisionsPackage
     export lookahead, iterative_policy_evaluation, Q, policy, backup
 
     # methods -
-    export evaluate, indifference, build, choose, solve;
+    export evaluate, indifference, build, choose, solve, greedy;
     export best_response_policy, softmax_response_policy, joint, utility, simulate, update!
 end
