@@ -67,7 +67,7 @@ function build(modeltype::Type{MyRectangularGridWorldModel}, data::NamedTuple)::
     nrows = data[:nrows]
     ncols = data[:ncols]
     rewards = data[:rewards]
-    defaultreward = data[:defaultreward];
+    defaultreward = hashkey(data,:defaultreward) ? data[:defaultreward] : -1.0;
 
     # setup storage
     rewards_dict = Dict{Int,Float64}()
