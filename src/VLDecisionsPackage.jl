@@ -5,7 +5,7 @@ module VLDecisionsPackage
     
     # types -
     export AbstractUtilityFunctionType, AbstractChoiceModelType, AbstractBehaviorModelType, AbstractSimpleChoiceProblem, AbstractGameModel, AbstractPolicyModel;
-    export AbstractProcessModel;
+    export AbstractProcessModel, AbstractWorldModel
     export VLLinearUtilityFunction, VLCobbDouglasUtilityFunction, VLLogTransformedCobbDouglasUtilityFunction, VLLeontiefUtilityFunction, VLLogUtilityFunction;
     export VLDiscreteChoiceModel;
     export VLLogitBehaviorModel;
@@ -26,8 +26,9 @@ module VLDecisionsPackage
     export MyIteratedBestResponsePolicy
     
     # MDPs
-    export MyMDPProblemModel, MyValueIterationModel, MyValueFunctionPolicy
+    export MyMDPProblemModel, MyValueIterationModel, MyValueFunctionPolicy, MyRectangularGridWorldModel
     export lookahead, iterative_policy_evaluation, Q, policy, backup
+
 
     # methods -
     export evaluate, indifference, build, choose, solve, greedy;

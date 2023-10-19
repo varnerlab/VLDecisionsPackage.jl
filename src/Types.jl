@@ -6,6 +6,7 @@ abstract type AbstractStochasticChoiceProblem end
 abstract type AbstractGameModel end
 abstract type AbstractPolicyModel end
 abstract type AbstractProcessModel end
+abstract type AbstractWorldModel end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
@@ -218,4 +219,18 @@ end
 struct MyValueFunctionPolicy
     problem::MyMDPProblemModel
     U::Array{Float64,1}
+end
+
+mutable struct MyRectangularGridWorldModel <: AbstractWorldModel
+
+    # data -
+    number_of_rows::Int
+    number_of_cols::Int
+    coordinates::Dict{Int,Tuple{Int,Int}}
+    states::Dict{Tuple{Int,Int},Int}
+    moves::Dict{Int,Tuple{Int,Int}}
+    rewards::Dict{Int,Float64}
+
+    # constructor -
+    MyRectangularGridWorldModel() = new();
 end
