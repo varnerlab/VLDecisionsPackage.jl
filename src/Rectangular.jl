@@ -41,4 +41,4 @@ function _world(model::MyRectangularGridWorldModel, s::Int, a::Int)::Tuple{Int,F
 end
 
 # super cool hack -
-(model::MyRectangularGridWorldModel)(s::Int,a::Int) = _world(model, s, a);
+(model::MyRectangularGridWorldModel)(s::Int, a::Int) = _world(model, s, a);
