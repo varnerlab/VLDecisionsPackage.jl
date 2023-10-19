@@ -7,6 +7,7 @@ abstract type AbstractGameModel end
 abstract type AbstractPolicyModel end
 abstract type AbstractProcessModel end
 abstract type AbstractWorldModel end
+abstract type AbstractLearningModel end
 
 # build concrete utility function types
 mutable struct VLLinearUtilityFunction <: AbstractUtilityFunctionType
