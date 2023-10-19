@@ -59,10 +59,10 @@ end
         rewards::Dict{Tuple{Int,Int}, Float64}; defaultreward::Float64 = -1.0) -> MyRectangularGridWorldModel
 """
 function build(modeltype::Type{MyRectangularGridWorldModel}, 
-    nrows::Int, ncols::Int, rewards, defaultreward::Float64)::MyRectangularGridWorldModel
+    nrows::Int, ncols::Int, rewards::Dict{Tuple{Int64, Int64}, Float64}; defaultreward::Float64 = -1.0)::MyRectangularGridWorldModel
 
     # initialize and empty model -
-    model = modeltype();
+    model = MyRectangularGridWorldModel()
 
     # get the data -
     # nrows = data[:nrows]
