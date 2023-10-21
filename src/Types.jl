@@ -242,5 +242,3 @@ struct MyRolloutLookaheadModel <: AbstractLearningModel
     policy::Array{Int64,1}
     d::Int64
 end
-
-randstep(problem::MyMDPProblemModel, s::Int64, a::Int64)::Int64 = problem.TR(s,a)
