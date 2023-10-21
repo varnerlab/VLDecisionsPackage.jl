@@ -98,7 +98,7 @@ end
 
 (π::MyValueFunctionPolicy)(s::Int64) = greedy(π.problem, π.U, s).a;
 
-function rollout(problem::MyMDPProblemModel, s::Int64, policy::Function, depth::Int64)::Float64
+function rollout(problem::MyMDPProblemModel, s::Int64, policy::Function, randstep::Function, depth::Int64)::Float64
 
     # initialize -
     ret = 0.0;
@@ -110,9 +110,8 @@ function rollout(problem::MyMDPProblemModel, s::Int64, policy::Function, depth::
     return ret;
 end
 
-randstep(problem::MyMDPProblemModel, s::Int64, a::Int64)::Int64 = problem.TR(s,a)
-
-function (π::MyRolloutLookaheadModel)(s::Int64)
-    U(s) = lookahead(π.problem, s, π.policy, π.depth);
-    return greedy(π.problem, U, s).a;
-end
+# randstep(problem::MyMDPProblemModel, s::Int64, a::Int64)::Int64 = problem.TR(s,a)
+# function (π::MyRolloutLookaheadModel)(s::Int64)
+#     U(s) = lookahead(π.problem, s, π.policy, π.depth);
+#     return greedy(π.problem, U, s).a;
+# end
