@@ -26,9 +26,8 @@ module VLDecisionsPackage
     export MyIteratedBestResponsePolicy
     
     # MDPs
-    export MyMDPProblemModel, MyValueIterationModel, MyValueFunctionPolicy, MyRectangularGridWorldModel
-    export lookahead, iterative_policy_evaluation, Q, policy, backup
-
+    export MyMDPProblemModel, MyValueIterationModel, MyValueFunctionPolicy, MyRectangularGridWorldModel, MyRolloutLookaheadModel
+    export lookahead, iterative_policy_evaluation, Q, policy, backup, rollout;
 
     # methods -
     export evaluate, indifference, build, choose, solve, greedy;

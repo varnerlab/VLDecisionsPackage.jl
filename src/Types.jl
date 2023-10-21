@@ -167,6 +167,7 @@ mutable struct MyMDPProblemModel <: AbstractProcessModel
     𝒮::Array{Int64,1}
     𝒜::Array{Int64,1}
     T::Union{Function, Array{Float64,3}}
+    TR::Union{Function, Nothing}
     R::Union{Function, Array{Float64,2}}
     γ::Float64
     
@@ -235,3 +236,11 @@ mutable struct MyRectangularGridWorldModel <: AbstractWorldModel
     # constructor -
     MyRectangularGridWorldModel() = new();
 end
+
+struct MyRolloutLookaheadModel <: AbstractLearningModel
+    k_max::Int64
+    policy::Array{Int64,1}
+    d::Int64
+end
+
+randstep(problem::MyMDPProblemModel, s::Int64, a::Int64)::Int64 = problem.TR(s,a)
