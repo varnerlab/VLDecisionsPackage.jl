@@ -14,7 +14,7 @@ function lookahead(p::MyMDPProblemModel, U::Function, s::Int64, a::Int64)
 
     # get data from the problem -
     𝒮, T, R, γ = p.𝒮, p.T, p.R, p.γ;
-    return R(s,a) + γ*sum(T(s,s′,a)*U(s′) for s′ in 𝒮)
+    return R[s,a] + γ*sum(T[s,s′,a]*U(s′) for s′ in 𝒮)
 end
 
 function iterative_policy_evaluation(p::MyMDPProblemModel, π, k_max::Int)
