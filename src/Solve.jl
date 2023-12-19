@@ -1,3 +1,12 @@
+function _test(x,α)
+
+    tmp = 1.0;
+    for i ∈ eachindex(x)
+        tmp *= x[i]^α[i];
+    end
+    return tmp;
+end
+
 """
     solve(problem::MySimpleCobbDouglasChoiceProblem) -> Dict{String,Any}
 
@@ -21,7 +30,9 @@ function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
     @variable(model, bounds[i,1] <= x[i=1:d] <= bounds[i,2], start=xₒ[i]) # we have d variables
     
     # set objective function -   
-    @NLobjective(model, Max, (x[1]^α[1])*(x[2]^α[2]));
+    # @NLobjective(model, Max, (x[1]^α[1])*(x[2]^α[2]));
+    @NLobjective(model, Max, _test(x,α));
+    #@NLobjective(model, Max, (x[1]^α[1])*(x[2]^α[2]));
     @constraints(model, 
         begin
             # my budget constraint
