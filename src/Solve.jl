@@ -26,7 +26,7 @@ function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
     d = length(α);
 
     # Setup the problem -
-    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.INFO, max_iter=500))
+    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.ERROR, max_iter=500))
     @variable(model, bounds[i,1] <= x[i=1:d] <= bounds[i,2], start=xₒ[i]) # we have d variables
     
     # set objective function -   
